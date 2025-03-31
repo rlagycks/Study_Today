@@ -26,41 +26,58 @@
 
 ### ✍️ 일일 기록 템플릿
 
-```markdown
-# 📅 2025-03-30
+# 📅 2025-04-01
 
-## 🎯 오늘의 학습 목표 / 방향
-- (Django 흐름파악, 백엔드 흐름 파악, C++로 병합 정렬 구현해보기)
+## 🎯 오늘의 학습 목표
+- Django ORM에서 모델 간 관계 정의 방법 이해하기
+- select_related, prefetch_related의 차이 실습으로 확인
+- 정렬 관련 코딩테스트 문제 출제 및 풀이
 
 ---
 
 ## 🧩 오늘 배운 핵심 개념 / 정리
-- (예: ForeignKey vs OneToOneField 차이점)
-- (예: select_related는 JOIN, prefetch_related는 다중 쿼리)
+- `ForeignKey`, `OneToOneField`, `ManyToManyField`의 차이점
+- `related_name` 옵션을 지정하면 역참조 이름 커스터마이징 가능
+- `select_related`는 JOIN 쿼리로 한번에 가져오고, `prefetch_related`는 N+1 문제를 줄이는 방식
+- Django shell에서 `.query`로 실제 쿼리문 확인 가능
+
+---
+
+## 🔢 오늘의 코딩 테스트 문제
+- 문제 이름: [백준 3182번 : 한동이는 공부가 하기 싫어!](https://www.acmicpc.net/problem/3182)
+- 문제 유형: 그래프 이론
+- 난이도: ⭐️⭐
+- 핵심 아이디어:
+  - 
+- 배운 점:
+  - 
+- 관련 커밋:
+  - [백준 3182번 풀이]()
 
 ---
 
 ## ❓ 생긴 질문들 & 추가로 찾아본 내용
-- Q: select_related와 prefetch_related의 실제 SQL 차이는?
-  - → [StackOverflow 링크](https://example.com)
-  - → 실험해보니 prefetch는 N+1 문제 완화에 유리
+- Q: `prefetch_related`는 내부적으로 어떤 쿼리를 실행할까?
+  - → `.query` 출력 확인, 실제로는 두 번의 SELECT 쿼리가 나감
+  - → [Django 문서 - select_related vs prefetch_related](https://docs.djangoproject.com/en/stable/ref/models/querysets/#prefetch-related)
 
-- Q: ManyToManyField는 중간 테이블을 어떻게 관리할까?
-  - → Django 공식 문서 참고, `through` 옵션 존재
+- Q: `related_name`을 잘못 지정하면 에러가 나는 경우?
+  - → 같은 이름 중복 시 Reverse accessor clash 발생
+  - → 해결법: related_name 값을 유니크하게 설정하거나 `+` 사용
 
 ---
 
 ## 🔍 관련 커밋
-- [모델 필드 테스트 및 쿼리 비교](https://github.com/username/repo/commit/abc1234)
+- [Django 모델 관계 실습 커밋](https://github.com/username/backend-study/commit/3f9e21b)
 
 ---
 
 ## 💡 오늘의 느낀 점 / 정리
-- Django ORM은 편하지만 결국 SQL을 알아야 자유로워진다
-- 질문이 생긴 순간이 제일 중요한 성장 포인트
+- ORM은 추상화가 잘 되어 있지만, 결국 SQL의 원리를 이해하고 있어야 진짜 효율적으로 사용할 수 있다.
+- 오늘은 공부하다가 생긴 질문이 꽤 많았고, 그걸 탐색하며 더 많은 개념을 연결할 수 있었다.
 
 ---
 
 ## 📎 참고 자료
 - [Django ORM 공식 문서](https://docs.djangoproject.com/en/stable/topics/db/models/)
-- [Django 튜토리얼 강의 - 3강](https://example.com)
+- [파이썬 collections 문서](https://docs.python.org/3/library/collections.html)
